@@ -1,7 +1,7 @@
 @echo off 
 
 @REM Add all the assemblies you want to publicize in this list
-set toPublicize=Assembly-CSharp.dll Assembly-CSharp-firstpass.dll
+set toPublicize=Assembly-CSharp.dll
 
 @REM Add all the assemblies you want to copy as-is to the package in this list
 set dontTouch=
@@ -15,7 +15,7 @@ set exePath=%exePath:"=%
 set managedPath=%exePath:.exe=_Data\Managed%
 echo managedPath: %managedPath%
 
-set outPath=%~dp0\package\lib
+set outPath=%~dp0\package\lib\netstandard2.0
 
 @REM Strip all assembiles, but keep them private.
 %~dp0\tools\NStrip.exe "%managedPath%" -o %outPath%
